@@ -9,6 +9,7 @@ const form = useForm({
 
 const submit = () => {
   form.post('/tickets')
+  
 }
 </script>
 
