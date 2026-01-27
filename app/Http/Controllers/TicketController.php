@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class TicketController extends Controller
 {
-    public function index()
+    public function create()
     {
-       return Inertia::render('Tickets/Index', [
-        'tickets' => Auth::user()->tickets
-    ]);
-
+        return Inertia::render('tickets/Create');
     }
 
     public function store(Request $request)
@@ -30,6 +26,8 @@ class TicketController extends Controller
             'status' => 'open',
         ]);
 
-        return redirect()->route('tickets.index');
+        // Por enquanto, volte para o create mesmo
+        return redirect()->route('tickets.create');
+            
     }
 }
