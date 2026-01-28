@@ -23,7 +23,9 @@ class Ticket extends Model
     return $this->belongsTo(User::class);
 
     }
-
-
+    protected $casts = [
+    'created_at' => 'datetime:d/m/Y H:i',
+    ];
+    
 
 }

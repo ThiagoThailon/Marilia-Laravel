@@ -5,9 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use App\Models\Ticket;
 
 class TicketController extends Controller
 {
+
+    public function index()
+    {
+        $tickets = Ticket::with('user')
+            ->latest()
+            ->take(50)
+            ->get();
+        
+        return Inertia::render('tickets/Chamados', [
+            'tickets' => $tickets
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('tickets/Formulario');
@@ -23,11 +37,12 @@ class TicketController extends Controller
         Auth::user()->tickets()->create([
             'title' => $request->title,
             'description' => $request->description,
-            'status' => 'open',
+            'status' => 'Aberto',
         ]);
 
-        // Por enquanto, volte para o create mesmo
-        return redirect()->route('tickets.create');
+        
+        return redirect()->route('dashboard');
             
     }
+    
 }

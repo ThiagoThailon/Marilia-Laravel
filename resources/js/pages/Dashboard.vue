@@ -11,7 +11,11 @@ const breadcrumbs: BreadcrumbItem[] = [
         title: 'Dashboard',
         href: dashboard().url,
     },
+    
 ];
+
+  
+    
 </script>
 
 <template>
@@ -44,7 +48,10 @@ const breadcrumbs: BreadcrumbItem[] = [
             <div
                 class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
             >
-                <PlaceholderPattern />
+                <Link href="/tickets/index">
+                    Ver chamados
+                </Link>
+            
             </div>
         </div>
     </AppLayout>

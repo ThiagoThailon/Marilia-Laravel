@@ -22,6 +22,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/tickets', [TicketController::class, 'store'])
         ->name('tickets.store');
+
+    Route::get('/tickets/index', [TicketController::class, 'index'])
+        ->name('tickets.index');
+
+
 });
 
 require __DIR__.'/settings.php';
