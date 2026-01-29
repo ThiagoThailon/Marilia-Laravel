@@ -26,7 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tickets/index', [TicketController::class, 'index'])
         ->name('tickets.index');
 
-
+    Route::put('/tickets/{ticket}/close', [TicketController::class, 'close'])
+        ->name('tickets.close');
 });
 
 require __DIR__.'/settings.php';

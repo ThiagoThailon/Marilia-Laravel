@@ -1,7 +1,17 @@
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
-import { dashboard } from '@/routes';
+import { Link, router } from '@inertiajs/vue3'
+import { useForm } from '@inertiajs/vue3'
+
+const enviar = useForm({
+  status: 'Fechado',
+})
+const submit = (ticket) => {
+  enviar.put(`/tickets/${ticket.id}/close`)
+}
+
+
+
 
 defineProps({
   tickets: Array
@@ -29,13 +39,22 @@ defineProps({
                               <p>Descrição: {{ ticket.description }}</p>
                               <p>Criador por: {{ ticket.user.name }}</p>
                               <p>Criado em: {{ ticket.created_at }}</p>
-                              <p class="font-bold"
+                              <p class="font-bold mb-5"
                                   :class="ticket.status === 'Aberto' ? 'text-green-500' : 'text-red-500'"
                                   >
                                   Status: {{ ticket.status }}
                               </p>
+                              
+                              <div v-if="ticket.status === 'Aberto'">
+                                  <button
+                                      @click="submit(ticket)"
+                                      class="bg-red-600 text-white px-4 py-2 rounded"
+                                  >
+                                      Fechar Chamado
+                                  </button>
+                              </div>
+
                           </div>
-                        
                       </div>
                       <div>
                       <Link

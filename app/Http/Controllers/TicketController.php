@@ -22,6 +22,7 @@ class TicketController extends Controller
         ]);
     }
 
+
     public function create()
     {
         return Inertia::render('tickets/Formulario');
@@ -44,5 +45,18 @@ class TicketController extends Controller
         return redirect()->route('dashboard');
             
     }
-    
+        public function close(Ticket $ticket)
+    {
+        $ticket->update([
+            'status' => 'Fechado',
+        ]);
+
+           return redirect()->back();
+
+    }
+
+       
+       
+        
+
 }
