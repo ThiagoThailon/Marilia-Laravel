@@ -14,9 +14,9 @@ class TicketController extends Controller
     {
         $tickets = Ticket::with('user')
             ->latest()
-            ->take(50)
-            ->get();
-        
+            ->paginate(10)
+            ->withQueryString();
+
         return Inertia::render('tickets/Chamados', [
             'tickets' => $tickets
         ]);
@@ -43,16 +43,15 @@ class TicketController extends Controller
 
         
         return redirect()->route('dashboard');
-            
     }
-        public function close(Ticket $ticket)
+
+    public function close(Ticket $ticket)
     {
         $ticket->update([
             'status' => 'Fechado',
         ]);
 
-           return redirect()->back();
-
+        return redirect()->back();
     }
 
        

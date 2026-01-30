@@ -1,75 +1,107 @@
-
 <script setup>
-import { Link, router } from '@inertiajs/vue3'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, Link } from '@inertiajs/vue3'
 
 const enviar = useForm({
   status: 'Fechado',
 })
+
 const submit = (ticket) => {
   enviar.put(`/tickets/${ticket.id}/close`)
 }
 
-
-
-
 defineProps({
-  tickets: Array
+  tickets: {
+    type: Object,
+    required: true
+  }
 })
 </script>
 
+
 <template>
+  <main class="min-h-screen flex flex-col items-center bg-white text-black p-6">
+    <h1 class="text-2xl font-bold mb-6">Chamados</h1>
 
-  <main class=" min-h-screen flex  bg-white">
+    <div class="bg-neutral-primary-soft shadow-xs rounded-base border border-default w-full max-w-6xl">
+      <table class="w-full text-sm text-left">
+        <thead class="bg-accent/10 border-b">
+          <tr>
+            <th class="px-6 py-3">Criado Por</th>
+            <th class="px-6 py-3">Motivo do Chamado</th>
+            <th class="px-6 py-3">Descrição</th>
+            <th class="px-6 py-3">Criado Em</th>
+            <th class="px-6 py-3">Status</th>
+            <th class="px-6 py-3">Ação</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            v-for="ticket in tickets.data"
+            :key="ticket.id"
+            class="border-b hover:bg-neutral-secondary-medium"
+          >
+            <td class="px-6 py-4 font-medium">
+              {{ ticket.user.name }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ ticket.title }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ ticket.description }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ ticket.created_at }}
+            </td>
+
+            <td
+              class="px-6 py-4"
+              :class="ticket.status === 'Aberto'
+                ? 'text-green-500'
+                : 'text-red-500'"
+            >
+              {{ ticket.status }}
+            </td>
+
+            <td class="px-6 py-4">
+              <button
+                v-if="ticket.status === 'Aberto'"
+                @click="submit(ticket)"
+                class="bg-red-600 text-white px-4 py-2 rounded"
+              >
+                Fechar Chamado
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex gap-1 mt-6">
+      <Link
+        v-for="link in tickets.links"
+        :key="link.label"
+        :href="link.url || '#'"
+        v-html="link.label"
+        preserve-scroll
+        class="px-3 py-1 border rounded text-sm"
+        :class="[
+          link.active
+            ? 'bg-blue-600 text-white'
+            : 'bg-white text-gray-700 hover:bg-gray-100',
+          !link.url && 'opacity-50 pointer-events-none'
+        ]"
+      />
       
-      
-        <div class="text-black flex flex-col w-full   justify-center items-center p-10" >
-          <h1 class="mt-10 text-4xl font-semibold">Meus Chamados</h1>
-          <section class="bg-slate-100 w-full m-30 rounded-lg flex  p-10 border-2 border-gray-300 flex-wrap ">
-              <div v-if="tickets.length === 0">
-                <p>Nenhum chamado encontrado.</p>
-              </div>
-                  <div v-else>
+    </div>
 
-                
-
-                      <div class="mt-10 ticket" v-for="ticket in tickets" :key="ticket.id" >
-                          <div class="bg-white m-10 p-5 rounded-lg border-2  border-gray-300 w-full  " >
-                              <h3>Motivo do chamado: {{ ticket.title }}</h3>
-                              <p>Descrição: {{ ticket.description }}</p>
-                              <p>Criador por: {{ ticket.user.name }}</p>
-                              <p>Criado em: {{ ticket.created_at }}</p>
-                              <p class="font-bold mb-5"
-                                  :class="ticket.status === 'Aberto' ? 'text-green-500' : 'text-red-500'"
-                                  >
-                                  Status: {{ ticket.status }}
-                              </p>
-                              
-                              <div v-if="ticket.status === 'Aberto'">
-                                  <button
-                                      @click="submit(ticket)"
-                                      class="bg-red-600 text-white px-4 py-2 rounded"
-                                  >
-                                      Fechar Chamado
-                                  </button>
-                              </div>
-
-                          </div>
-                      </div>
-                      <div>
-                      <Link
-                        href="/dashboard"
-                        class="text-blue-600 hover:underline"
-                      >
-                        Voltar para o Dashboard
-                      </Link>
-                    </div>
-                                          
-              </div>
-          </section>
-
-        </div>
+    <div class="mt-6">
+      <Link href="/dashboard" class="text-blue-600 hover:underline">
+        Voltar para o Dashboard
+      </Link>
+    </div>
   </main>
-
-
 </template>
