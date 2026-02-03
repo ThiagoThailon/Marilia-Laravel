@@ -4,6 +4,7 @@ import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3'
+import TicketForm from '@/components/Formulario.vue'
 import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -25,25 +26,23 @@ const breadcrumbs: BreadcrumbItem[] = [
         <div
             class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
         >
-            <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-                <div
-                    class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-                >
-                <Link href="/tickets/create">
-                    Abrir um chamado
-                </Link>
+            <div>
 
-                </div>
-               
+                 <main class="min-h-[50vh] flex items-center justify-center bg-white p-10 rounded-xl border border-sidebar-border0 shadow-sm md:min-h-min dark:bg-sidebar-secondary dark:border-sidebar-border">
+                    <TicketForm />
+                </main>
+
             </div>
             <div
-                class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
+                class=" min-h-[50vh] flex-1 rounded-xl border border-sidebar-border0 md:min-h-min dark:border-sidebar-border bg-white text-black"
             >
-                <Link href="/tickets/index">
+                <Link href="/tickets/my-tickets" >
                     Ver chamados
                 </Link>
-            
+            s
             </div>
+            
+
         </div>
     </AppLayout>
 </template>

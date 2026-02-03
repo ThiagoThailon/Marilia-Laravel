@@ -22,11 +22,14 @@ class TicketController extends Controller
         ]);
     }
 
+  
 
-    public function create()
-    {
-        return Inertia::render('tickets/Formulario');
-    }
+
+    // public function create()
+    // {
+    //     return Inertia::render('tickets/Formulario');
+    // }
+
 
     public function store(Request $request)
     {
