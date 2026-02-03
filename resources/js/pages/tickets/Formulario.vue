@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/vue3'
 const form = useForm({
   title: '',
   description: '',
-  status: 'Aberto',
+  
 })
 const submit = () => {
   form.post('/tickets')
