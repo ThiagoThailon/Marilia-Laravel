@@ -49,7 +49,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             >
                 <h1 class="p-2 text-2xl text-center font-semibold">Meus Chamados</h1>
                 <div class="p-3">
-                    <TicketList :tickets="tickets.data" />
+                    <TicketList :tickets="tickets.data" :links="tickets.links" />
                 </div>
                 
             </div>

@@ -87,7 +87,7 @@ defineProps({
         :href="link.url || '#'"
         v-html="link.label"
         preserve-scroll
-        class="px-3 py-1 border rounded text-sm"
+        class="px-3 py-1 border border-black rounded text-sm"
         :class="[
           link.active
             ? 'bg-blue-600 text-white'

@@ -1,5 +1,7 @@
 
 <script setup lang="ts">
+import { useForm, Link } from '@inertiajs/vue3'
+
 const props = defineProps<{
   tickets: Array<{
     id: number|string
@@ -8,6 +10,11 @@ const props = defineProps<{
     description: string
     created_at: string
     status: string
+  }>
+  links?: Array<{
+    url: string | null
+    label: string
+    active: boolean
   }>
 }>()
 </script>
@@ -30,7 +37,7 @@ const props = defineProps<{
                         v-for="ticket in tickets"
                         :key="ticket.id" 
                         class="bg-neutral-primary border-b border-default">
-                            <td scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{ ticket.user.name }}</td>
+                            <td scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{ ticket.user?.name }}</td>
                             <td class="px-6 py-4">{{ ticket.title }}</td>
                             <td class="px-6 py-4">{{ ticket.description }}</td>
                             <td class="px-6 py-4">{{ ticket.created_at }}</td>
@@ -43,5 +50,23 @@ const props = defineProps<{
                         </tr>
                     </tbody>
                 </table>
+                
             </div>
-        </template>
+           <div class="flex gap-1 mt-6 justify-center">
+            <Link
+                v-for="link in links"
+                :key="link.label"
+                :href="link.url || '#'"
+                v-html="link.label"
+                preserve-scroll
+                class="px-3 py-1 rounded text-sm border border-gray-700" 
+                :class="[
+                link.active
+                    ? 'bg-blue-600 text-white border-blue-600'   // mantém borda azul quando ativo
+                    : 'bg-white text-gray-700 hover:bg-gray-100',
+                !link.url && 'opacity-50 pointer-events-none'
+                ]"
+            />
+                
+            </div>
+      </template>
