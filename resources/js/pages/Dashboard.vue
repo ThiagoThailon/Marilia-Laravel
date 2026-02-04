@@ -5,7 +5,18 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3'
 import TicketForm from '@/components/Formulario.vue'
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
+import TicketList from '@/components/ChamadosUser.vue'
+
+
+const props = defineProps<{
+  tickets: {
+    data: any[],
+    links: any[],
+    meta?: any
+  },
+  filters?: { mine?: boolean }
+}>()
+
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -36,10 +47,11 @@ const breadcrumbs: BreadcrumbItem[] = [
             <div
                 class=" min-h-[50vh] flex-1 rounded-xl border border-sidebar-border0 md:min-h-min dark:border-sidebar-border bg-white text-black"
             >
-                <Link href="/tickets/my-tickets" >
-                    Ver chamados
-                </Link>
-            s
+                <h1 class="p-2 text-2xl text-center font-semibold">Meus Chamados</h1>
+                <div class="p-3">
+                    <TicketList :tickets="tickets.data" />
+                </div>
+                
             </div>
             
 

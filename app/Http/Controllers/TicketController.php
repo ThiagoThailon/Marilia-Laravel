@@ -21,8 +21,22 @@ class TicketController extends Controller
             'tickets' => $tickets
         ]);
     }
+    
+        public function myTickets()
+        {
+            $tickets = Ticket::with('user')
+                ->where('user_id', Auth::id())
+                ->latest()
+                ->paginate(5)
+                ->withQueryString();
 
-  
+            return Inertia::render('Dashboard', [
+                'tickets' => $tickets,
+                'filters' => [
+                    'mine' => true,
+                ],
+            ]);
+        }
 
 
     // public function create()
