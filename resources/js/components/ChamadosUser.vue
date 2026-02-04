@@ -1,22 +1,18 @@
 
-<script setup lang="ts">
-import { useForm, Link } from '@inertiajs/vue3'
+<script setup >
+import { Link } from '@inertiajs/vue3'
 
-const props = defineProps<{
-  tickets: Array<{
-    id: number|string
-    user?: { name?: string } | null
-    title: string
-    description: string
-    created_at: string
-    status: string
-  }>
-  links?: Array<{
-    url: string | null
-    label: string
-    active: boolean
-  }>
-}>()
+defineProps({
+  tickets: {
+    type: Array,
+    required: true
+  },
+  links: {
+    type: Array,
+    default: () => []
+  }
+})
+
 </script>
 
 
