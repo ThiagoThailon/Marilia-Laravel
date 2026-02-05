@@ -2,6 +2,8 @@
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
+
+
 import {
     Sidebar,
     SidebarContent,
@@ -25,14 +27,29 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
+
 const footerNavItems: NavItem[] = [
+     
+        {
+            title: 'Chamados',
+            href: '/tickets/index',
+            icon: MessageSquarePlus,
+        },
     
-    {
-        title: 'Chamados',
-        href: '/tickets/index',
-        icon: MessageSquarePlus,
-    }
+    
 ];
+
+const props = defineProps<{
+    user: {
+        role: string;
+    };
+}>();
+
+
+
+
+
+
 </script>
 
 <template>
@@ -54,8 +71,19 @@ const footerNavItems: NavItem[] = [
         </SidebarContent>
 
         <SidebarFooter>
-            <NavFooter :items="footerNavItems" />
-            <NavUser />
+                <NavFooter  :items="footerNavItems"   />
+
+           
+                <!-- <div 
+                    class=" px-2 py-1 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 mt-4">
+                    <Link href="tickets/index"
+                     class="  dark:text-neutral-300 dark:hover:text-neutral-100">
+                    
+                        Chamados
+                    </Link>
+                </div> -->
+            
+                <NavUser />
         </SidebarFooter>
     </Sidebar>
     <slot />

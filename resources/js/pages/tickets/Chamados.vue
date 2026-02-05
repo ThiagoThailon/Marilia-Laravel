@@ -28,7 +28,7 @@ defineProps({
           <tr>
             <th class="px-6 py-3">Criado Por</th>
             <th class="px-6 py-3">Motivo do Chamado</th>
-            <th class="px-6 py-3">Descrição</th>
+            <th class="px-6 py-3 ">Descrição</th>
             <th class="px-6 py-3">Criado Em</th>
             <th class="px-6 py-3">Status</th>
             <th class="px-6 py-3">Ação</th>
@@ -49,9 +49,11 @@ defineProps({
               {{ ticket.title }}
             </td>
 
-            <td class="px-6 py-4">
+           <td class="px-6 py-4 max-w-sm">
+            <p class="line-clamp-5 break-words">
               {{ ticket.description }}
-            </td>
+            </p>
+          </td>
 
             <td class="px-6 py-4">
               {{ ticket.created_at }}

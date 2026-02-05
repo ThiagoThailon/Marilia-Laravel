@@ -19,9 +19,9 @@ defineProps({
         <template>
             <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
                 <table class="w-full text-sm text-left rtl:text-right text-body">
-                    <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+                    <thead class="text- text-body bg-neutral-secondary-soft  rounded-base border-default bg-accent/10 border-b">
                         <tr>
-                            <th scope="col" class="px-6 py-3 font-medium">Criado Por</th>
+                           
                             <th scope="col" class="px-6 py-3 font-medium">Motivo do Chamado</th>
                             <th scope="col" class="px-6 py-3 font-medium">Descrição</th>
                             <th scope="col" class="px-6 py-3 font-medium">Criado Em</th>
@@ -33,8 +33,8 @@ defineProps({
                         v-for="ticket in tickets"
                         :key="ticket.id" 
                         class="bg-neutral-primary border-b border-default">
-                            <td scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{ ticket.user?.name }}</td>
-                            <td class="px-6 py-4">{{ ticket.title }}</td>
+                            
+                            <td class=" px-6 py-4 max-w-lg truncate ">{{ ticket.title }}</td>
                             <td class="px-6 py-4">{{ ticket.description }}</td>
                             <td class="px-6 py-4">{{ ticket.created_at }}</td>
                             <td class="px-6 py-4"

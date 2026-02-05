@@ -38,7 +38,8 @@ const submit = () => {
         id="title"
         type="text"
         v-model="form.title"
-        placeholder="Ex: Problema no sistema"
+        maxlength="25"
+        placeholder="Ex: Esqueci minha senha"
         class="border p-3 w-full rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         required
       />
@@ -57,7 +58,9 @@ const submit = () => {
       <textarea
         id="description"
         v-model="form.description"
-        placeholder="Descreva o problema com o máximo de detalhes possível"
+        maxlength="200"
+        rows="5"
+        placeholder="EX: Estou sem acesso ao e-mail e ao site..."
         class="border p-3 h-40 w-full rounded-xl resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
         required
       />
