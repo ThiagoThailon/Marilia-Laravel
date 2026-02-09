@@ -27,8 +27,8 @@ class TicketController extends Controller
             $tickets = Ticket::with('user')
                 ->where('user_id', Auth::id())
                 ->latest()
-                ->paginate(5)
-                ->withQueryString();
+                ->paginate(5);
+                
 
             return Inertia::render('Dashboard', [
                 'tickets' => $tickets,
@@ -55,7 +55,7 @@ class TicketController extends Controller
         Auth::user()->tickets()->create([
             'title' => $request->title,
             'description' => $request->description,
-            'status' => 'Aberto',
+           
         ]);
 
         
@@ -72,7 +72,6 @@ class TicketController extends Controller
     }
 
        
-       
-        
+   
 
 }
