@@ -101,7 +101,7 @@ withDefaults(
                     <div class="py-4 pr-4">
                         <h2 class="text-xl font-semibold">Crie um chamado</h2>
                         <p class="text-slate-600 text-sm">
-                        Descreva o seu problema ou solicitação e nós envie.
+                        Descreva o seu problema ou solicitação e nos envie.
                         </p>
                     </div>
 
@@ -137,7 +137,7 @@ withDefaults(
                     <div class="py-4 pr-4">
                         <h2 class="text-xl font-semibold">A prefeitura responde</h2>
                         <p class="text-slate-600 text-sm">
-                        Nossa equipe irá analiser e responder sua solicitação o mais breve possível.
+                        Nossa equipe irá analisar e responder sua solicitação o mais breve possível.
                         </p>
                     </div>
 
