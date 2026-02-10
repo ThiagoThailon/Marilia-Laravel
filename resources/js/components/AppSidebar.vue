@@ -39,12 +39,6 @@ const footerNavItems: NavItem[] = [
     
 ];
 
-const props = defineProps<{
-    user: {
-        role: string;
-    };
-}>();
-
 
 
 

@@ -6,7 +6,6 @@ const form = useForm({
   description: '',
 })
 
-
 const submit = () => {
   form.post('/tickets', {
     preserveScroll: true,
@@ -17,18 +16,18 @@ const submit = () => {
     },
   })
 }
-
 </script>
 
 <template>
   <form
     @submit.prevent="submit"
-    class="space-y-6 p-8 flex flex-col border border-gray-300 rounded-2xl w-full max-w-xl text-black bg-white shadow-sm"
+    class="flex w-full max-w-xl flex-col space-y-6 rounded-2xl border border-gray-300  bg-white p-8 text-black shadow-sm"
   >
-    <h2 class="text-2xl font-bold text-center">
+    <h2 class="text-center text-2xl font-bold">
       Abrir chamado
     </h2>
 
+ 
     <div class="flex flex-col gap-1">
       <label for="title" class="font-semibold">
         Motivo do chamado
@@ -40,16 +39,19 @@ const submit = () => {
         v-model="form.title"
         maxlength="25"
         placeholder="Ex: Esqueci minha senha"
-        class="border p-3 w-full rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         required
+        class="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
-      <span v-if="form.errors.title" class="text-red-600 text-sm">
+      <span
+        v-if="form.errors.title"
+        class="text-sm text-red-600"
+      >
         {{ form.errors.title }}
       </span>
     </div>
 
-    
+ 
     <div class="flex flex-col gap-1">
       <label for="description" class="font-semibold">
         Descrição
@@ -61,23 +63,26 @@ const submit = () => {
         maxlength="200"
         rows="5"
         placeholder="EX: Estou sem acesso ao e-mail e ao site..."
-        class="border p-3 h-40 w-full rounded-xl resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
         required
+        class="h-40 w-full resize-none rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
-      <span v-if="form.errors.description" class="text-red-600 text-sm">
+      <span
+        v-if="form.errors.description"
+        class="text-sm text-red-600"
+      >
         {{ form.errors.description }}
       </span>
     </div>
 
-  
+   
     <button
       type="submit"
       :disabled="form.processing"
-      class="bg-blue-600 text-white px-4 py-3 w-full rounded-xl font-semibold
-             hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+      class="w-full rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
     >
       {{ form.processing ? 'Enviando...' : 'Enviar chamado' }}
     </button>
   </form>
 </template>
+``
