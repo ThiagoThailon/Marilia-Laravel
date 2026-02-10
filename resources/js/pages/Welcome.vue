@@ -63,7 +63,7 @@ withDefaults(
                     </Link>
                     <div>
                         <h1 class="text-center text-4xl font-bold text-white" >Sistema de Suporte ao Cidadão</h1>
-                        <h2 class="text-xl">Registre solicitações, acompanhe protocolos.</h2>
+                        <h2 class="text-xl">Registre solicitações, acompanhe solicitações.</h2>
                     </div>
 
             </section >
@@ -83,7 +83,7 @@ withDefaults(
                     <div class="py-4 pr-4">
                         <h2 class="text-xl font-semibold">Crie uma conta</h2>
                         <p class="text-slate-600 text-sm">
-                        Acesse o nosso site com a contra criada.
+                        Acesse o nosso site com a conta criada.
                         </p>
                     </div>
 
@@ -101,7 +101,7 @@ withDefaults(
                     <div class="py-4 pr-4">
                         <h2 class="text-xl font-semibold">Crie um chamado</h2>
                         <p class="text-slate-600 text-sm">
-                        Descreva o seu problema ou solicitação e receba um número de protocolo.
+                        Descreva o seu problema ou solicitação e nós envie.
                         </p>
                     </div>
 
