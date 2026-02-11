@@ -13,5 +13,6 @@ const props = defineProps<{
     :class="cn('text-muted-foreground text-sm', props.class)"
   >
     <slot />
+    
   </p>
 </template>

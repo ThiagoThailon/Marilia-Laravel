@@ -9,6 +9,7 @@ const props = defineProps<{
 
 <template>
   <div
+  
     data-slot="card"
     :class="
       cn(

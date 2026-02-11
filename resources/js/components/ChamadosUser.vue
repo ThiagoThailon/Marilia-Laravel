@@ -1,8 +1,9 @@
 
 <script setup >
+import { computed } from 'vue'
 import { Link } from '@inertiajs/vue3'
 
-defineProps({
+const props = defineProps({
   tickets: {
     type: Array,
     required: true
@@ -11,6 +12,12 @@ defineProps({
     type: Array,
     default: () => []
   }
+})
+
+
+const closedCount = computed(() => {
+  if (!props.tickets) return 0
+  return props.tickets.filter((t) => t.status === 'Fechado').length
 })
 
 </script>
@@ -26,6 +33,7 @@ defineProps({
                             <th scope="col" class="px-6 py-3 font-medium">Descrição</th>
                             <th scope="col" class="px-6 py-3 font-medium">Criado Em</th>
                             <th scope="col" class="px-6 py-3 font-medium">Status</th>
+                            <th scope="col" class="px-6 py-3 font-medium">Contagem</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +50,8 @@ defineProps({
                                 ? 'text-green-500'
                                 : 'text-red-500'"
                             >{{ ticket.status }}</td>
-                            
+
+                           <td class="px-6 py-4">{{ closedCount }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,7 +67,7 @@ defineProps({
                 class="px-3 py-1 rounded text-sm border border-gray-700" 
                 :class="[
                 link.active
-                    ? 'bg-blue-600 text-white border-blue-600'   // mantém borda azul quando ativo
+                    ? 'bg-blue-600 text-white border-blue-600'   
                     : 'bg-white text-gray-700 hover:bg-gray-100',
                 !link.url && 'opacity-50 pointer-events-none'
                 ]"
