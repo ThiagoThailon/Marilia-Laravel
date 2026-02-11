@@ -41,9 +41,6 @@ const footerNavItems: NavItem[] = [
 
 
 
-
-
-
 </script>
 
 <template>
