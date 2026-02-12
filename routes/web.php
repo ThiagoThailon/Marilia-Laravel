@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\TicketController;
 use App\Http\Middleware\isAdmin;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -36,6 +37,9 @@ Route::middleware(['auth', isAdmin::class])->group(function () {
 
     Route::put('/tickets/{ticket}/close', [TicketController::class, 'close'])
         ->name('tickets.close');
+
+    Route::post('/admin', [UserController::class, 'storeAdmin']) 
+        ->name('criar.admin');
 });  
 
 

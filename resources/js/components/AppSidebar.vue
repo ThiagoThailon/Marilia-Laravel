@@ -2,7 +2,7 @@
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
-
+import { Head, usePage } from '@inertiajs/vue3';
 
 import {
     Sidebar,
@@ -18,6 +18,7 @@ import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid, MessageSquarePlus } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import { computed } from 'vue';
 
 const mainNavItems: NavItem[] = [
     {
@@ -39,6 +40,10 @@ const footerNavItems: NavItem[] = [
     
 ];
 
+const page = usePage();
+const userRole = computed(() => (page.props as any).auth?.user?.role ?? null);
+const isUser = computed(() => userRole.value === 'user');
+const isAdmin = computed(() => userRole.value === 'admin');
 
 
 </script>
@@ -62,17 +67,10 @@ const footerNavItems: NavItem[] = [
         </SidebarContent>
 
         <SidebarFooter>
-                <NavFooter  :items="footerNavItems"   />
+                <NavFooter  v-if="isAdmin" :items="footerNavItems"   />
 
            
-                <!-- <div 
-                    class=" px-2 py-1 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 mt-4">
-                    <Link href="tickets/index"
-                     class="  dark:text-neutral-300 dark:hover:text-neutral-100">
-                    
-                        Chamados
-                    </Link>
-                </div> -->
+              
             
                 <NavUser />
         </SidebarFooter>

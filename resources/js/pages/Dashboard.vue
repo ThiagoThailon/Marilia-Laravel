@@ -4,10 +4,10 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/vue3';
-import { Link } from '@inertiajs/vue3'
 import TicketForm from '@/components/Formulario.vue'
 import TicketList from '@/components/ChamadosUser.vue'
-import Card from '@/components/Cards.vue'
+
+import PainelAdmin from '@/components/FormularioAdmin.vue'
 
 const props = defineProps<{
   tickets: {
@@ -20,11 +20,11 @@ const props = defineProps<{
 
 
 
-// Acesso às props compartilhadas pelo Inertia (veja HandleInertiaRequests.php)
+
 const page = usePage();
 const userRole = computed(() => (page.props as any).auth?.user?.role ?? null);
 const isUser = computed(() => userRole.value === 'user');
-const isAdmin = computed(() => userRole.value ==='admin');
+const isAdmin = computed(() => userRole.value === 'admin');
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -59,10 +59,12 @@ const breadcrumbs: BreadcrumbItem[] = [
                 class=" min-h-[50vh] flex-1 rounded-xl border border-sidebar-border0 md:min-h-min dark:border-sidebar-border bg-white text-black"
             >
                 
-                  <Card :tickets="tickets.data" />.
-                  
-                   
-                    
+                  <div v-if="isAdmin" class=" flex justify-center p-10"> 
+                      
+                      
+                       <PainelAdmin />
+                      
+                  </div>
 
                 <div v-if="isUser"
                 class="p-3">
