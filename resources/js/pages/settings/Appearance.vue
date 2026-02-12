@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
-        title: 'Appearance settings',
+        title: 'Configurações de aparência',
         href: edit().url,
     },
 ];
@@ -17,16 +17,16 @@ const breadcrumbItems: BreadcrumbItem[] = [
 
 <template>
     <AppLayout :breadcrumbs="breadcrumbItems">
-        <Head title="Appearance settings" />
+        <Head title="Configurações de aparência" />
 
-        <h1 class="sr-only">Appearance Settings</h1>
+        <h1 class="sr-only">Configurações de aparência</h1>
 
         <SettingsLayout>
             <div class="space-y-6">
                 <Heading
                     variant="small"
-                    title="Appearance settings"
-                    description="Update your account's appearance settings"
+                    title="Configurações de aparência"
+                    description="Atualize as configurações de aparência da sua conta"
                 />
                 <AppearanceTabs />
             </div>
