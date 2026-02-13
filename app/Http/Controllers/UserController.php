@@ -25,6 +25,7 @@ class UserController extends Controller
         ]);
 
         
+        
         $user = User::create([
             'name'     => $validated['name'],
             'email'    => $validated['email'],

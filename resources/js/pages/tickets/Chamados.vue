@@ -1,5 +1,8 @@
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3'
+import { useFormatDate } from '@/composables/useFormatDate'
+
+const { formatDate } = useFormatDate()
 
 const enviar = useForm({
   status: 'Fechado',
@@ -56,7 +59,7 @@ defineProps({
           </td>
 
             <td class="px-6 py-4">
-              {{ ticket.created_at }}
+              {{ formatDate(ticket.created_at) }}
             </td>
 
             <td class="px-6 py-4">

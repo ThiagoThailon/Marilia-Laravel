@@ -24,7 +24,8 @@ class Ticket extends Model
 
     }
     protected $casts = [
-    'created_at' => 'datetime:d/m/Y H:i',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
     
 

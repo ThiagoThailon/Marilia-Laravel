@@ -2,6 +2,9 @@
 <script setup >
 import { computed } from 'vue'
 import { Link } from '@inertiajs/vue3'
+import { useFormatDate } from '@/composables/useFormatDate'
+
+const { formatDate } = useFormatDate()
 
 const props = defineProps({
   tickets: {
@@ -44,7 +47,7 @@ const closedCount = computed(() => {
                             
                             <td class=" px-6 py-4 max-w-lg truncate ">{{ ticket.title }}</td>
                             <td class="px-6 py-4">{{ ticket.description }}</td>
-                            <td class="px-6 py-4">{{ ticket.created_at }}</td>
+                            <td class="px-6 py-4">{{ formatDate(ticket.created_at) }}</td>
                             <td class="px-6 py-4"
                             :class= "ticket.status === 'Aberto'
                                 ? 'text-green-500'
