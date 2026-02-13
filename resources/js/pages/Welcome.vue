@@ -155,45 +155,46 @@ withDefaults(
         
         </div>
         
-        <footer 
-            class=" w-full border-t border-[#00000033] bg-sky-900 text-center 
-            ">
-                <div class="flex justify-center items-center ">
-                    <div class="flex p-10 gap-15">
-                        <div class="flex flex-row ">
-                            <img  class="h-20 w-20" src="/img/Brasão_de_Marília.png" alt="logomarilia">
-                            <h3 class="max-w-32 text-white text-xl font-bold text-center ">Prefeitura
-                                de Marília</h3>
-                        </div>
+    <footer class="w-full border-t border-[#00000033] bg-sky-900">
 
+        <div class="flex justify-center items-center">
+            <div class="flex items-center justify-around p-10  max-w-6xl w-full">
 
-                        <div class="flex flex-col text-white text-left">
-                            <p>Rua: Bahia, nº 40 - Centro - CEP: 17501-900</p>
-                            <p>(14) 3402-6000</p>
-                            <p>Atendimento de Segunda-feira a Sexta-feira das 08 às 17 horas</p>
-                            <div class="flex items-center  gap-5 ">
-                               
-                                <a href=" https://www.facebook.com/PrefeituraMarilia/"  target="_blank">
-                                <img class="h-10 w-10"  src="/img/facebook.png"  alt="Facebook"  </a>    
-                                    
-                                    
-                               <a href="https://www.instagram.com/prefeiturademarilia/" target="_blank">
-                                <img class="h-8 w-8" src="/img/instagram.png" alt="instagram"></a>
-                             
-                            </div>
-                        </div>
-                        <div>
-                            
-                        </div>
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <img class="h-20 w-20" src="/img/Brasão_de_Marília.png" alt="logomarilia">
+                    <h3 class="text-white text-xl font-bold">
+                        Prefeitura de Marília
+                    </h3>
+                </div>
+
+                <!-- Informações -->
+                <div class="flex flex-col text-white text-left">
+                    <p>Rua: Bahia, nº 40 - Centro - CEP: 17501-900</p>
+                    <p>(14) 3402-6000</p>
+                    <p>Atendimento de Segunda-feira a Sexta-feira das 08 às 17 horas</p>
+
+                    <div class="flex items-center gap-5 mt-2">
+                        <a href="https://www.facebook.com/PrefeituraMarilia/" target="_blank">
+                            <img class="h-8 w-8" src="/img/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/prefeiturademarilia/" target="_blank">
+                            <img class="h-8 w-8" src="/img/instagram.png" alt="Instagram">
+                        </a>
                     </div>
-
                 </div>
 
-                <div class=" w-full border-t border-[#00000033] bg-sky-950 p-5">
-                    <p class="text-xs text-slate-50"
-                    >Prefeitura de Marília&copy; - Todos os direitos reservados </p>
-                </div>
-        </footer>
+            </div>
+        </div>
+
+        <div class="w-full border-t border-[#00000033] bg-sky-950 p-5 text-center">
+            <p class="text-xs text-slate-50">
+                Prefeitura de Marília © - Todos os direitos reservados
+            </p>
+        </div>
+
+    </footer>
+
        
     </div>
 </template>

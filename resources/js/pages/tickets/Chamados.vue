@@ -22,9 +22,9 @@ defineProps({
   <main class="min-h-screen flex flex-col items-center bg-sky-900  text-black p-6">
     <h1 class="text-2xl font-bold mb-6 text-slate-50">Chamados</h1>
 
-    <div class="bg-neutral-primary-soft shadow-xs rounded-base border border-default w-full max-w-6xl bg-slate-50  rounded-xl overflow-x-auto">
+    <div class="w-full max-w-6xl bg-white rounded-2xl shadow-lg overflow-hidden">
       <table class="w-full text-sm text-center ">
-        <thead class="text- text-body bg-neutral-secondary-soft  rounded-base border-default bg-accent/20 border-b h-20">
+        <thead class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wider">
           <tr>
             <th class="px-6 py-3">Criado Por</th>
             <th class="px-6 py-3">Motivo do Chamado</th>
@@ -35,11 +35,11 @@ defineProps({
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="divide-y divide-slate-200">
           <tr
             v-for="ticket in tickets.data"
             :key="ticket.id"
-            class="bg-neutral-primary border-b border-default"
+            class="hover:bg-slate-50 transition-colors"
           >
             <td class="px-6 py-4 font-medium">
               {{ ticket.user.name }}
@@ -59,20 +59,23 @@ defineProps({
               {{ ticket.created_at }}
             </td>
 
-            <td
-              class="px-6 py-4"
-              :class="ticket.status === 'Aberto'
-                ? 'text-green-500'
-                : 'text-red-500'"
-            >
-              {{ ticket.status }}
+            <td class="px-6 py-4">
+              <span
+                class="px-3 py-1 text-xs font-semibold rounded-full"
+                :class="ticket.status === 'Aberto'
+                  ? 'bg-green-100 text-green-700'
+                  : 'bg-red-100 text-red-700'"
+              >
+                {{ ticket.status }}
+              </span>
             </td>
 
             <td class="px-6 py-4">
               <button
                 v-if="ticket.status === 'Aberto'"
                 @click="submit(ticket)"
-                class="bg-red-600 text-slate-50 px-4 py-2 rounded"
+                class="px-4 py-2 text-sm font-medium bg-red-600 hover:bg-red-700 text-white rounded-lg transition shadow-sm"
+
               >
                 Fechar Chamado
               </button>
