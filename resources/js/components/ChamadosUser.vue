@@ -1,6 +1,6 @@
 
 <script setup >
-import { computed } from 'vue'
+
 import { Link } from '@inertiajs/vue3'
 import { useFormatDate } from '@/composables/useFormatDate'
 
@@ -18,10 +18,6 @@ const props = defineProps({
 })
 
 
-const closedCount = computed(() => {
-  if (!props.tickets) return 0
-  return props.tickets.filter((t) => t.status === 'Fechado').length
-})
 
 </script>
 
