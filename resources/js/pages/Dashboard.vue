@@ -6,16 +6,19 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/vue3';
 import TicketForm from '@/components/Formulario.vue'
 import TicketList from '@/components/ChamadosUser.vue'
-
+import QuantidadeCard from '@/components/QuantidadeC.vue'
 import PainelAdmin from '@/components/FormularioAdmin.vue'
 
 const props = defineProps<{
-  tickets: {
+  tickets?: { // <-- adicione a interrogação aqui
     data: any[],
     links: any[],
     meta?: any
   },
-  filters?: { mine?: boolean }
+  filters?: { mine?: boolean },
+  openTickets?: number,
+  closedTickets?: number,
+  totalTickets?: number
 }>()
 
 
@@ -69,8 +72,18 @@ const breadcrumbs: BreadcrumbItem[] = [
                 <div v-if="isUser"
                 class="p-3">
                     <h1 class="p-2 text-2xl text-center font-semibold">Meus Chamados</h1>
-                    <TicketList :tickets="tickets.data" :links="tickets.links" />
+                    <TicketList :tickets="tickets?.data ?? []" :links="tickets?.links ?? []" />
                 </div>
+
+                <div v-if="isAdmin">
+                    <QuantidadeCard 
+                        class="p-3" 
+                        :openTickets="openTickets ?? 0" 
+                        :closedTickets="closedTickets ?? 0" 
+                        :totalTickets="totalTickets ?? 0" 
+                    />
+                </div>
+
                 
             </div>
             

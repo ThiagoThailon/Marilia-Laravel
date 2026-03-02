@@ -22,20 +22,41 @@ class TicketController extends Controller
         ]);
     }
     
+
+
         public function myTickets()
         {
-            $tickets = Ticket::with('user')
-                ->where('user_id', Auth::id())
-                ->latest()
-                ->paginate(5);
-                
+           $user = Auth::user();
 
-            return Inertia::render('Dashboard', [
-                'tickets' => $tickets,
-                'filters' => [
-                    'mine' => true,
-                ],
-            ]);
+        // 1. Inicializamos as variáveis com zero por padrão
+        $totalTickets = 0;
+        $openTickets = 0;
+        $closedTickets = 0;
+
+        // 2. Se o usuário for um Admin, fazemos as consultas de quantidade
+        if ($user->role === 'admin') {
+            $totalTickets = Ticket::count();
+            $openTickets = Ticket::where('status', 'Aberto')->count();
+            $closedTickets = Ticket::where('status', 'Fechado')->count();
+        }
+
+        // 3. Buscamos os tickets do usuário (como você já fazia)
+        $tickets = Ticket::with('user')
+            ->where('user_id', $user->id)
+            ->latest()
+            ->paginate(5);
+
+        // 4. Retornamos tudo em um único Inertia::render
+        return Inertia::render('Dashboard', [
+            'tickets' => $tickets,
+            'filters' => [
+                'mine' => true,
+            ],
+            // Enviamos as quantidades junto com o resto dos dados!
+            'totalTickets' => $totalTickets,
+            'openTickets' => $openTickets,
+            'closedTickets' => $closedTickets,
+        ]);
         }
 
 
