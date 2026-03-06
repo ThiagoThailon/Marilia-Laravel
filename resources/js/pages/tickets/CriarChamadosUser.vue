@@ -39,18 +39,22 @@ const user = computed(() => page.props.auth.user);
             </DropdownMenu>
         </div>
      
-        <div class="h-full w-full flex flex-col justify-center items-center mt-20 flex-1">
-
+        <div class="h-full w-full flex flex-col justify-center items-center mt-10 flex-1">
+            <div class="text-center flex flex-col items-center mb-5">
+                <img class="h-30 w-30" src="/img/Brasão_de_Marília.png" alt="logomarilia">
+                <p class="text-xl font-semibold">Sistema de Suporte ao Cidadão</p>
+                <p>Registre solicitações, acompanhe solicitações.</p>
+            </div>
             <TicketForm />
-        
-            <div class="text-black flex items-end justify-center mt-15">
+            
+            <div class="text-black flex items-end justify-center m-5">
                 
-                <Link href="/tickets/chamados" class="rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50">
+                <Link href="/tickets/chamados" class="rounded-xl bg-green-600 px-4 py-3 font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50">
 
                     Ver Chamados Abertos
 
                 </Link>
-
+                
             </div>
         </div>
         

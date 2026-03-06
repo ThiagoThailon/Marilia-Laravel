@@ -83,7 +83,7 @@ class TicketController extends Controller
         ]);
 
         
-        return redirect()->route('dashboard');
+        return redirect()->route('tickets.user');
     }
 
     public function close(Ticket $ticket)
