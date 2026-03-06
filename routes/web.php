@@ -14,9 +14,6 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('dashboard', [TicketController::class, 'myTickets'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 
 
@@ -28,27 +25,26 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tickets', [TicketController::class, 'store']) /// criação de chamados
         ->name('tickets.store');
 
-    Route::get('/tickets/index', [TicketController::class, 'index']) //// Pagina chamados ADM
-        ->name('tickets.index');
-
+   
     Route::get('/tickets/user', [TicketController::class, 'create']) /// Vai para o formulario de chamados do usuario
         ->name('tickets.user');
 
-    Route::get('/tickets/chamados', [TicketController::class, 'chamadosUser'])
+    Route::get('/tickets/chamados', [TicketController::class, 'chamadosUser']) /// tela chamados user
         ->name('tickets.chamados');
 
    
-
-
-
 });
 
-
+/// ROTAS ADMIN 
 Route::middleware(['auth', isAdmin::class])->group(function () {
 
-   
+    Route::get('dashboard', [TicketController::class, 'myTickets'])
+        ->middleware(['auth', 'verified'])
+        ->name('dashboard');
+
         
-     
+     Route::get('/tickets/index', [TicketController::class, 'index']) //// Pagina chamados ADM
+        ->name('tickets.index');
 
 
     Route::put('/tickets/{ticket}/close', [TicketController::class, 'close']) //fechamento de chamados
