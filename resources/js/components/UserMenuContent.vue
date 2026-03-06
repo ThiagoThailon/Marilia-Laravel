@@ -9,7 +9,8 @@ import UserInfo from '@/components/UserInfo.vue';
 import { logout } from '@/routes';
 import { edit } from '@/routes/profile';
 import type { User } from '@/types';
-import { Link, router } from '@inertiajs/vue3';
+import { Link, router, usePage ,  } from '@inertiajs/vue3';
+import { computed } from 'vue';
 import { LogOut, Settings } from 'lucide-vue-next';
 
 type Props = {
@@ -21,6 +22,12 @@ const handleLogout = () => {
 };
 
 defineProps<Props>();
+
+
+const page = usePage();
+const userRole = computed(() => (page.props as any).auth?.user?.role ?? null);
+const isUser = computed(() => userRole.value === 'user');
+const isAdmin = computed(() => userRole.value === 'admin');
 </script>
 
 <template>
@@ -32,7 +39,7 @@ defineProps<Props>();
     <DropdownMenuSeparator />
     <DropdownMenuGroup>
         <DropdownMenuItem :as-child="true">
-            <Link class="block w-full cursor-pointer" :href="edit()" prefetch>
+            <Link class="block w-full cursor-pointer" :href="edit()" prefetch v-if="isAdmin">
                 <Settings class="mr-2 h-4 w-4" />
                 Configurações
             </Link>

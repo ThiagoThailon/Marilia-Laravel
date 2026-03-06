@@ -25,7 +25,7 @@ const props = defineProps({
         <template>
             <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
                 <table class="w-full text-sm text-left rtl:text-right text-body">
-                    <thead class="text- text-body bg-neutral-secondary-soft  rounded-base border-default bg-accent/10 border-b">
+                    <thead class="text- text-body bg-neutral-secondary-soft  rounded-base border-default bg-accent/10 border-b text-black font-semibold">
                         <tr>
                            
                             <th scope="col" class="px-6 py-3 font-medium">Motivo do Chamado</th>
@@ -35,7 +35,7 @@ const props = defineProps({
                             <th scope="col" class="px-6 py-3 font-medium">Contagem</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-black">
                         <tr
                         v-for="ticket in tickets"
                         :key="ticket.id" 

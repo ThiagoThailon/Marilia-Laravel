@@ -22,8 +22,7 @@ class TicketController extends Controller
         ]);
     }
     
-
-
+      
         public function myTickets()
         {
            $user = Auth::user();
@@ -33,12 +32,12 @@ class TicketController extends Controller
         $openTickets = 0;
         $closedTickets = 0;
 
-        // 2. Se o usuário for um Admin, fazemos as consultas de quantidade
-        if ($user->role === 'admin') {
-            $totalTickets = Ticket::count();
-            $openTickets = Ticket::where('status', 'Aberto')->count();
-            $closedTickets = Ticket::where('status', 'Fechado')->count();
-        }
+        
+       
+        $totalTickets = Ticket::count();
+        $openTickets = Ticket::where('status', 'Aberto')->count();
+        $closedTickets = Ticket::where('status', 'Fechado')->count();
+        
 
         // 3. Buscamos os tickets do usuário (como você já fazia)
         $tickets = Ticket::with('user')
@@ -60,10 +59,14 @@ class TicketController extends Controller
         }
 
 
-    // public function create()
-    // {
-    //     return Inertia::render('tickets/Formulario');
-    // }
+    public function create()
+    {
+        return Inertia::render('tickets/CriarChamadosUser');
+    }
+    public function createChamados()
+    {
+        return Inertia::render('tickets/Chamados');
+    }
 
 
     public function store(Request $request)
@@ -92,6 +95,17 @@ class TicketController extends Controller
         return redirect()->back();
     }
 
+    public function chamadosUser()
+    {
+        $tickets = Ticket::with('user')
+            ->where('user_id', Auth::id())
+            ->latest()
+            ->paginate(10);
+
+        return Inertia::render('tickets/ChamadoUser', [
+            'tickets' => $tickets
+        ]);
+    }
        
    
 

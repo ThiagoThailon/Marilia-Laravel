@@ -25,25 +25,36 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/tickets/create', [TicketController::class, 'create'])
     //     ->name('tickets.create');
 
-    Route::post('/tickets', [TicketController::class, 'store'])
+    Route::post('/tickets', [TicketController::class, 'store']) /// criação de chamados
         ->name('tickets.store');
+
+    Route::get('/tickets/index', [TicketController::class, 'index']) //// Pagina chamados ADM
+        ->name('tickets.index');
+
+    Route::get('/tickets/user', [TicketController::class, 'create']) /// Vai para o formulario de chamados do usuario
+        ->name('tickets.user');
+
+    Route::get('/tickets/chamados', [TicketController::class, 'chamadosUser'])
+        ->name('tickets.chamados');
+
+   
+
+
 
 });
 
 
 Route::middleware(['auth', isAdmin::class])->group(function () {
 
-    Route::get('/tickets/index', [TicketController::class, 'index'])
-        ->name('tickets.index');
+   
         
-     Route::get('/tickets/index', [TicketController::class, 'index'])
-        ->name('tickets.index');
+     
 
 
-    Route::put('/tickets/{ticket}/close', [TicketController::class, 'close'])
+    Route::put('/tickets/{ticket}/close', [TicketController::class, 'close']) //fechamento de chamados
         ->name('tickets.close');
 
-    Route::post('/admin', [UserController::class, 'storeAdmin']) 
+    Route::post('/admin', [UserController::class, 'storeAdmin'])    // criação de usuarios ADM
         ->name('criar.admin');
 });  
 

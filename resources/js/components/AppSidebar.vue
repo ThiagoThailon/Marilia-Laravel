@@ -36,9 +36,30 @@ const footerNavItems: NavItem[] = [
             href: '/tickets/index',
             icon: MessageSquarePlus,
         },
-    
+        
+        {
+           title: 'Criar Chamado User',
+            href: '/tickets/create',
+            icon: MessageSquarePlus, 
+
+        }
     
 ];
+
+
+const footerNav: NavItem[] = [
+     
+       
+        
+        {
+           title: 'Chamados',
+            href: '/tickets/user',
+            icon: MessageSquarePlus, 
+
+        }
+    
+];
+
 
 const page = usePage();
 const userRole = computed(() => (page.props as any).auth?.user?.role ?? null);
@@ -69,7 +90,7 @@ const isAdmin = computed(() => userRole.value === 'admin');
         <SidebarFooter>
                 <NavFooter  v-if="isAdmin" :items="footerNavItems"   />
 
-           
+                <NavFooter  v-if="isUser" :items="footerNav"   />
               
             
                 <NavUser />
