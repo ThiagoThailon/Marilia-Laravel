@@ -107,8 +107,8 @@ defineProps({
     </div>
 
     <div class="mt-6">
-      <Link h-ref="/dashboard" class="text-white hover:underline">
-        Voltar para o Dashboard
+      <Link href="/admin" class="text-white hover:underline">
+        Voltar o Painel Admin
       </Link>
     </div>
   </main>
