@@ -25,7 +25,7 @@ const user = computed(() => page.props.auth.user);
     <main class="min-h-screen w-full flex flex-col bg-slate-50 relative">
         
         <!-- Menu de Usuário Independente -->
-        <div class="absolute top-5 right-5 z-10 ">
+        <div class="absolute top-5 right-10 z-10 transition-transform duration-300 hover:-translate-y-2 ">
             <DropdownMenu>
                 <DropdownMenuTrigger class="cursor-pointer outline-none">
                     <Avatar class="h-10 w-10 border border-gray-200 shadow-sm">
