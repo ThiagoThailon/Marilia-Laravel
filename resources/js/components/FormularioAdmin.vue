@@ -9,7 +9,7 @@ const form = useForm({
 })
 
 const submit = () => {
-  form.post('/admin', {
+  form.post('/admin/users', {
     preserveScroll: true,
     preserveState: false,
     onSuccess: () => {

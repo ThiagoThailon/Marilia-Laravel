@@ -22,7 +22,7 @@ const user = computed(() => page.props.auth.user);
 
 <template>
 
-    <main class="min-h-screen w-full flex flex-col bg-slate-50 relative">
+    <main class="min-h-screen w-full flex flex-col bg-blue-50 relative">
         
         <!-- Menu de Usuário Independente -->
         <div class="absolute top-5 right-5 z-10">
@@ -43,7 +43,7 @@ const user = computed(() => page.props.auth.user);
 
             <TicketList :tickets="tickets?.data ?? []" :links="tickets?.links ?? []" />
         
-            <div class="text-black flex items-end justify-center m-10">
+            <div class="text-black flex items-end justify-center m-10 ">
                 
                 <Link href="/tickets/user" class="rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50">
 

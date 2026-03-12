@@ -50,8 +50,12 @@ Route::middleware(['auth', isAdmin::class])->group(function () {
     Route::put('/tickets/{ticket}/close', [TicketController::class, 'close']) //fechamento de chamados
         ->name('tickets.close');
 
-    Route::post('/admin', [UserController::class, 'storeAdmin'])    // criação de usuarios ADM
+    Route::post('/admin/users', [UserController::class, 'storeAdmin'])    // criação de usuarios ADM
         ->name('criar.admin');
+
+    Route::get('/admin', [UserController::class, 'create'])
+        ->name('painel.admin');
+
 });  
 
 

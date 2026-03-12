@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { dashboard, login, register } from '@/routes';
 import { Head, Link } from '@inertiajs/vue3';
+import { Transition } from 'vue';   
 
 withDefaults(
     defineProps<{
@@ -59,7 +60,8 @@ withDefaults(
                         <Link
                             href="/"
                         >
-                            <img  class="h-70 w-70" src="/img/Brasão_de_Marília.png" alt="logomarilia">
+                            <img  class="h-70 w-70 transition-transform duration-300 hover:-translate-y-3" src="/img/Brasão_de_Marília.png" alt="logomarilia" 
+                            >
                         </Link>
                         <div>
                             <h1 class="text-center text-4xl font-bold text-white" >Sistema de Suporte ao Cidadão</h1>
@@ -74,25 +76,25 @@ withDefaults(
                     
                     <h2 class="text-3xl text-left font-semibold text-sky-900">Como Funciona?</h2>
                     
-                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl ">
+                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl transition-transform duration-300 hover:-translate-y-3">
                     
                         <div class="flex items-center justify-center w-16
-                                    bg-gradient-to-b from-blue-500 to-blue-700
+                                    bg-linear-to-b from-blue-500 to-blue-700
                                     text-white text-3xl font-bold
                                     rounded-l-xl rounded-tl-xl  rounded-br-[70px] ">
                             1
                         </div>
-                        <div class="py-4 pr-4">
+                        <div class="py-4 pr-4 ">
                             <h2 class="text-xl font-semibold text-sky-900">Crie uma conta</h2>
                             <p class="text-slate-600 text-sm">
                             Acesse o nosso site com a conta criada.
                             </p>
                         </div>
                     </article>
-                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl  ">
+                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl transition-transform duration-300 hover:-translate-y-3 ">
                     
                         <div class="flex items-center justify-center w-16
-                                    bg-gradient-to-b from-blue-500 to-blue-700
+                                    bg-linear-to-b from-blue-500 to-blue-700
                                     text-white text-3xl font-bold
                                     rounded-l-xl rounded-tl-xl  rounded-br-[70px] ">
                             2
@@ -104,10 +106,10 @@ withDefaults(
                             </p>
                         </div>
                     </article>
-                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl  ">
+                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl transition-transform duration-300 hover:-translate-y-3 ">
                     
                         <div class="flex items-center justify-center w-16
-                                    bg-gradient-to-b from-blue-500 to-blue-700
+                                    bg-linear-to-b from-blue-500 to-blue-700
                                     text-white text-3xl font-bold
                                     rounded-l-xl rounded-tl-xl  rounded-br-[70px] ">
                             3
@@ -119,10 +121,10 @@ withDefaults(
                             </p>
                         </div>
                     </article>
-                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl  ">
+                    <article class="bg-white w-200 flex gap-5 rounded-xl border border-white shadow-xl transition-transform duration-300 hover:-translate-y-3 ">
                     
                         <div class="flex items-center justify-center w-16
-                                    bg-gradient-to-b from-blue-500 to-blue-700
+                                    bg-linear-to-b from-blue-500 to-blue-700
                                     text-white text-3xl font-bold
                                     rounded-l-xl rounded-tl-xl  rounded-br-[70px] ">
                             4
@@ -137,7 +139,7 @@ withDefaults(
                 </div>    
                 <div>
                     <img
-                    class="h-150 w-200 relative top-15"
+                    class="h-150 w-200 relative top-15 "
                      src="/img/person.png" alt="pessoa">
                 </div>
 
@@ -157,7 +159,7 @@ withDefaults(
             <div class="flex items-center justify-around p-10  max-w-6xl w-full">
 
                 <div class="flex items-center gap-4">
-                    <img class="h-20 w-20" src="/img/Brasão_de_Marília.png" alt="logomarilia">
+                    <img class="h-20 w-20 " src="/img/Brasão_de_Marília.png" alt="logomarilia">
                     <h3 class="text-white text-xl font-bold">
                         Prefeitura de Marília
                     </h3>
@@ -170,10 +172,10 @@ withDefaults(
 
                     <div class="flex items-center gap-5 mt-2">
                         <a href="https://www.facebook.com/PrefeituraMarilia/" target="_blank">
-                            <img class="h-8 w-8" src="/img/facebook.png" alt="Facebook">
+                            <img class="h-9 w-9 transition-transform duration-300 hover:-translate-y-2" src="/img/facebook.png" alt="Facebook">
                         </a>
                         <a href="https://www.instagram.com/prefeiturademarilia/" target="_blank">
-                            <img class="h-8 w-8" src="/img/instagram.png" alt="Instagram">
+                            <img class="h-8 w-8 transition-transform duration-300 hover:-translate-y-2" src="/img/instagram.png" alt="Instagram">
                         </a>
                     </div>
                 </div>

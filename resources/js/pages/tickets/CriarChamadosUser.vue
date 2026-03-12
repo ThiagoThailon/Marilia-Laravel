@@ -25,7 +25,7 @@ const user = computed(() => page.props.auth.user);
     <main class="min-h-screen w-full flex flex-col bg-slate-50 relative">
         
         <!-- Menu de Usuário Independente -->
-        <div class="absolute top-5 right-5 z-10">
+        <div class="absolute top-5 right-5 z-10 ">
             <DropdownMenu>
                 <DropdownMenuTrigger class="cursor-pointer outline-none">
                     <Avatar class="h-10 w-10 border border-gray-200 shadow-sm">
@@ -41,7 +41,7 @@ const user = computed(() => page.props.auth.user);
      
         <div class="h-full w-full flex flex-col justify-center items-center mt-10 flex-1">
             <div class="text-center flex flex-col items-center mb-5">
-                <img class="h-30 w-30" src="/img/Brasão_de_Marília.png" alt="logomarilia">
+                <img class="h-30 w-30 transition-transform duration-300 hover:-translate-y-3" src="/img/Brasão_de_Marília.png" alt="logomarilia">
                 <p class="text-xl font-semibold">Sistema de Suporte ao Cidadão</p>
                 <p>Registre solicitações, acompanhe solicitações.</p>
             </div>

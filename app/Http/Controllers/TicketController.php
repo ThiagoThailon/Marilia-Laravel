@@ -67,7 +67,7 @@ class TicketController extends Controller
     {
         return Inertia::render('tickets/Chamados');
     }
-
+    
 
     public function store(Request $request)
     {

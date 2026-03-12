@@ -23,24 +23,24 @@ const props = defineProps({
 
 
         <template>
-            <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-black">
+            <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-black rounded-xl">
                 <table class="w-full text-sm text-left rtl:text-right text-body bg">
                     <thead class="text- text-body bg-neutral-secondary-soft  rounded-base border-default bg-accent/10 border-b text-black font-semibold">
-                        <tr class="">
-                           
+                        <tr class="text-center">
+                            <th scope="col" class="px-6 py-3 font-medium">Nome Usuario</th>
                             <th scope="col" class="px-6 py-3 font-medium">Motivo do Chamado</th>
                             <th scope="col" class="px-6 py-3 font-medium">Descrição</th>
                             <th scope="col" class="px-6 py-3 font-medium">Criado Em</th>
                             <th scope="col" class="px-6 py-3 font-medium">Status</th>
-                            <th scope="col" class="px-6 py-3 font-medium">Contagem</th>
+                           
                         </tr>
                     </thead>
-                    <tbody class="text-black">
+                    <tbody class="text-black ">
                         <tr
                         v-for="ticket in tickets"
                         :key="ticket.id" 
-                        class="bg-neutral-primary border-b border-default">
-                            
+                        class="bg-neutral-primary border-b border-default text-center">
+                            <td>{{ ticket.user.name }}</td>
                             <td class=" px-6 py-4 max-w-lg truncate ">{{ ticket.title }}</td>
                             <td class="px-6 py-4">{{ ticket.description }}</td>
                             <td class="px-6 py-4">{{ formatDate(ticket.created_at) }}</td>

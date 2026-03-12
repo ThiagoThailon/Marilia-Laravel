@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
+
 class UserController extends Controller
 {
     
@@ -37,4 +38,11 @@ class UserController extends Controller
             ->back()
             ->with('success', 'Administrador criado com sucesso!');
     }
+
+    public function create()
+    {
+
+
+    }
+    
 }
