@@ -59,7 +59,7 @@ Route::middleware(['auth', isAdmin::class])->group(function () {
     Route::post('/admin/users', [UserController::class, 'storeAdmin'])    // criação de usuarios ADM
         ->name('criar.admin');
 
-    Route::get('/admin', [UserController::class, 'create'])
+    Route::get('/admin', [UserController::class, 'create']) // painel adm
         ->name('painel.admin');
 
     

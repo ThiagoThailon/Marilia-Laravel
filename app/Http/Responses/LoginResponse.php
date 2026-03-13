@@ -18,7 +18,7 @@ class LoginResponse implements LoginResponseContract
         $role = $user?->role ?? null;
         $isAdmin = $role === 'admin';
 
-        $target = $isAdmin ? route('dashboard', absolute: false) : '/tickets/user';
+        $target = $isAdmin ? route('painel.admin', absolute: false) : '/tickets/user';
 
         return redirect()->intended($target);
     }
