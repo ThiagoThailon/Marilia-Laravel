@@ -12,6 +12,7 @@ import type { User } from '@/types';
 import { Link, router, usePage ,  } from '@inertiajs/vue3';
 import { computed } from 'vue';
 import { LogOut, Settings } from 'lucide-vue-next';
+import Configuracao from '@/pages/Configuracao.vue';
 
 type Props = {
     user: User;
@@ -39,7 +40,7 @@ const isAdmin = computed(() => userRole.value === 'admin');
     <DropdownMenuSeparator />
     <DropdownMenuGroup>
         <DropdownMenuItem :as-child="true">
-            <Link class="block w-full cursor-pointer" :href="edit()" prefetch v-if="isAdmin">
+            <Link class="block w-full cursor-pointer" href="/configuracao" prefetch >
                 <Settings class="mr-2 h-4 w-4" />
                 Configurações
             </Link>

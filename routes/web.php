@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [TicketController::class, 'myTickets'])
         ->middleware(['auth', 'verified'])
         ->name('dashboard');
+
+     Route::get('/configuracao', [UserController::class, 'createconfig'])
+        ->name('condiguracao.teste');
    
 });
 
@@ -59,8 +62,7 @@ Route::middleware(['auth', isAdmin::class])->group(function () {
     Route::get('/admin', [UserController::class, 'create'])
         ->name('painel.admin');
 
-    Route::get('/teste', [UserController::class, 'createteste'])
-        ->name('teste.teste');
+    
 });  
 
 
