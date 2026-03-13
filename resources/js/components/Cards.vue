@@ -1,5 +1,5 @@
 
-<script setup >
+<script setup lang="js" >
 import { computed } from 'vue'
 
 

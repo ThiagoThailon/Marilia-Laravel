@@ -12,7 +12,7 @@ import type { User } from '@/types';
 import { Link, router, usePage ,  } from '@inertiajs/vue3';
 import { computed } from 'vue';
 import { LogOut, Settings } from 'lucide-vue-next';
-import Configuracao from '@/pages/Configuracao.vue';
+
 
 type Props = {
     user: User;
@@ -27,8 +27,7 @@ defineProps<Props>();
 
 const page = usePage();
 const userRole = computed(() => (page.props as any).auth?.user?.role ?? null);
-const isUser = computed(() => userRole.value === 'user');
-const isAdmin = computed(() => userRole.value === 'admin');
+
 </script>
 
 <template>

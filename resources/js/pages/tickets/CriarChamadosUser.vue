@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import TicketList from '@/components/ChamadosUser.vue'
 import TicketForm from '@/components/Formulario.vue'
 import { usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';

@@ -1,4 +1,4 @@
-<script setup >
+<script setup lang="js" >
 
 import PainelAdmin from '@/components/FormularioAdmin.vue'
 import UserMenuContent from '@/components/UserMenuContent.vue';
