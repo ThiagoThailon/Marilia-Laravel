@@ -32,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tickets/chamados', [TicketController::class, 'chamadosUser']) /// tela chamados user
         ->name('tickets.chamados');
 
+    Route::get('dashboard', [TicketController::class, 'myTickets'])
+        ->middleware(['auth', 'verified'])
+        ->name('dashboard');
    
 });
 
@@ -56,6 +59,8 @@ Route::middleware(['auth', isAdmin::class])->group(function () {
     Route::get('/admin', [UserController::class, 'create'])
         ->name('painel.admin');
 
+    Route::get('/teste', [UserController::class, 'createteste'])
+        ->name('teste.teste');
 });  
 
 

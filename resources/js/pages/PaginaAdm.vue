@@ -17,7 +17,7 @@ const user = computed(() => page.props.auth.user);
 </script>
 
 <template>
-    <main>
+    <main class="min-h-screen flex flex-col items-center bg-sky-800">
         <div class="absolute top-10 right-5 z-10 transition-transform duration-300 hover:-translate-y-2">
             <DropdownMenu>
                 <DropdownMenuTrigger class="cursor-pointer outline-none">
@@ -36,14 +36,19 @@ const user = computed(() => page.props.auth.user);
                 <PainelAdmin />
         </div>
 
-       <div class="fixed bottom-6 right-6 z-50 transition-transform duration-300 hover:-translate-y-2">
-    <Link href="/tickets/index">
-        <div class="cursor-pointer flex items-center gap-2 bg-white border border-gray-200 shadow-lg px-4 py-3 rounded-full hover:bg-gray-50">
-            <MessageSquarePlus class="h-5 w-5 text-gray-700" />
-            <span class="text-sm text-gray-700">Chamados</span>
+       <div class="fixed bottom-15 right-6 z-50 transition-transform duration-300 hover:-translate-y-2">
+            <Link href="/tickets/index">
+                <div class="cursor-pointer flex items-center gap-2 bg-white border border-gray-200 shadow-lg px-4 py-3 rounded-full hover:bg-gray-50">
+                    <MessageSquarePlus class="h-5 w-5 text-gray-700" />
+                    <span class="text-sm text-gray-700">Chamados</span>
+                </div>
+            </Link>
         </div>
-    </Link>
-</div>
+        <footer class=" w-full border-t border-[#00000033] bg-sky-900 text-center p-4 ">
 
+            <p class="text-xs text-slate-50"
+            >Todos os direitos reservados - Prefeitura de Marília&copy;</p>
+
+        </footer>
     </main>
 </template>

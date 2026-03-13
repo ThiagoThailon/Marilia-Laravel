@@ -45,7 +45,10 @@ class UserController extends Controller
      return Inertia::render('PaginaAdm');
     }
 
-
+    public function createteste(){
+        return Inertia::render('Configuracao');
+    
+    }
     
     
 }

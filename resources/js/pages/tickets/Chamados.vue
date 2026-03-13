@@ -22,7 +22,7 @@ defineProps({
 
 
 <template>
-  <main class="min-h-screen flex flex-col items-center bg-sky-900  text-black p-6">
+  <main class="min-h-screen flex flex-col items-center bg-sky-800  text-black p-6">
     <h1 class="text-2xl font-bold mb-6 text-slate-50">Chamados</h1>
 
     <div class="w-full max-w-6xl bg-white rounded-2xl shadow-lg overflow-hidden">
